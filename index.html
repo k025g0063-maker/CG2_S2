@@ -1,0 +1,1415 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>口頭試問キーワード対策</title>
+    <style>
+        :root {
+            --bg: #f6f4ee;
+            --ink: #202020;
+            --muted: #66615a;
+            --panel: #ffffff;
+            --line: #d8d2c8;
+            --accent: #1f6f8b;
+            --accent-2: #d14b3f;
+            --soft: #e9f4f7;
+            --dark: #202020;
+            --dark-ink: #f7f7f2;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Yu Gothic UI", "Yu Gothic", Meiryo, system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .hero {
+            min-height: 48vh;
+            background: linear-gradient(90deg, rgba(32,32,32,.96), rgba(32,32,32,.82)), radial-gradient(circle at 82% 20%, rgba(31,111,139,.45), transparent 28%), linear-gradient(135deg, #1f6f8b, #d14b3f);
+            color: var(--dark-ink);
+            display: grid;
+            align-items: end;
+            padding: clamp(28px, 5vw, 56px);
+        }
+
+        .hero-inner {
+            max-width: 1180px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            margin: 0 0 14px;
+            font-size: clamp(34px, 6vw, 72px);
+            line-height: 1.05;
+            letter-spacing: 0;
+        }
+
+        .hero p {
+            max-width: 780px;
+            margin: 0 0 26px;
+            font-size: clamp(16px, 2.3vw, 22px);
+            color: #ece8df;
+        }
+
+        .hero-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+            .hero-stats span {
+                border: 1px solid rgba(255,255,255,.24);
+                padding: 7px 10px;
+                background: rgba(255,255,255,.08);
+                font-weight: 700;
+            }
+
+        .wrap {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 28px clamp(16px, 4vw, 32px) 56px;
+        }
+
+        .top-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(260px, .9fr);
+            gap: 20px;
+            align-items: start;
+            margin-bottom: 24px;
+        }
+
+        section.band {
+            border-top: 2px solid var(--ink);
+            padding-top: 16px;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: clamp(22px, 3vw, 34px);
+            line-height: 1.25;
+            letter-spacing: 0;
+        }
+
+        .criteria, .flow {
+            display: grid;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+            .criteria div, .flow div {
+                display: grid;
+                grid-template-columns: 92px 1fr;
+                gap: 12px;
+                align-items: baseline;
+                padding: 8px 0;
+                border-bottom: 1px solid var(--line);
+            }
+
+            .flow div {
+                grid-template-columns: 42px 1fr;
+            }
+
+        .app {
+            display: grid;
+            grid-template-columns: 340px minmax(0, 1fr);
+            gap: 22px;
+            align-items: start;
+        }
+
+        .tools {
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            padding-top: 10px;
+        }
+
+        .search {
+            width: 100%;
+            min-height: 44px;
+            border: 2px solid var(--ink);
+            background: #fff;
+            color: var(--ink);
+            font-size: 16px;
+            padding: 10px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .term-list {
+            display: grid;
+            gap: 7px;
+            max-height: calc(100vh - 90px);
+            overflow: auto;
+            padding-right: 6px;
+        }
+
+        .term-link {
+            display: block;
+            text-decoration: none;
+            background: #fff;
+            border: 1px solid var(--line);
+            border-left: 5px solid transparent;
+            padding: 10px 12px;
+            font-weight: 800;
+            border-radius: 4px;
+        }
+
+            .term-link:hover, .term-link.active {
+                border-left-color: var(--accent);
+                background: var(--soft);
+            }
+
+        .detail {
+            background: var(--panel);
+            border: 2px solid var(--ink);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .detail-head {
+            background: var(--dark);
+            color: var(--dark-ink);
+            padding: clamp(18px, 3vw, 30px);
+        }
+
+            .detail-head h2 {
+                margin-bottom: 8px;
+                font-size: clamp(30px, 5vw, 58px);
+            }
+
+            .detail-head p {
+                margin: 0;
+                color: #e6e2d8;
+                font-weight: 700;
+            }
+
+        .detail-body {
+            padding: clamp(18px, 3vw, 30px);
+            display: grid;
+            gap: 18px;
+        }
+
+        .answer {
+            border-left: 7px solid var(--accent-2);
+            background: #fff7f0;
+            padding: 14px 16px;
+            font-size: clamp(18px, 2.4vw, 24px);
+            font-weight: 900;
+            line-height: 1.55;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .info-box {
+            border-top: 2px solid var(--line);
+            padding-top: 12px;
+        }
+
+            .info-box h3 {
+                margin: 0 0 6px;
+                font-size: 18px;
+            }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            background: #fff;
+            text-decoration: none;
+            padding: 5px 8px;
+            border-radius: 999px;
+            font-weight: 800;
+        }
+
+        .practice {
+            border-top: 2px solid var(--ink);
+            padding-top: 18px;
+            margin-top: 26px;
+        }
+
+        .practice-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        button {
+            min-height: 42px;
+            border: 2px solid var(--ink);
+            background: var(--ink);
+            color: #fff;
+            padding: 9px 12px;
+            border-radius: 4px;
+            font-weight: 900;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+            button.secondary {
+                background: #fff;
+                color: var(--ink);
+            }
+
+        .question {
+            background: #fff;
+            border: 2px solid var(--line);
+            padding: 16px;
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .answer-input {
+            width: 100%;
+            min-height: 120px;
+            resize: vertical;
+            border: 2px solid var(--ink);
+            background: #fff;
+            color: var(--ink);
+            padding: 12px;
+            font: inherit;
+            font-size: 16px;
+            border-radius: 4px;
+        }
+
+        .judge {
+            border: 2px solid var(--line);
+            background: #fff;
+            padding: 14px 16px;
+            min-height: 64px;
+            font-weight: 800;
+        }
+
+            .judge.correct {
+                border-color: #247a4d;
+                background: #edf8f1;
+                color: #175d38;
+            }
+
+            .judge.close {
+                border-color: #b9831f;
+                background: #fff7df;
+                color: #73500f;
+            }
+
+            .judge.miss {
+                border-color: #b9463c;
+                background: #fff0ee;
+                color: #81271f;
+            }
+
+        .quiz-panel {
+            background: #fff;
+            border: 2px solid var(--line);
+            padding: 16px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .quiz-title {
+            font-size: 20px;
+            font-weight: 900;
+        }
+
+        .choices {
+            display: grid;
+            gap: 10px;
+        }
+
+        .choice {
+            width: 100%;
+            min-height: 48px;
+            text-align: left;
+            background: #f8faf8;
+            color: var(--ink);
+            border: 2px solid var(--line);
+            font-weight: 800;
+            line-height: 1.55;
+        }
+
+            .choice:hover {
+                border-color: var(--accent);
+                background: var(--soft);
+            }
+
+            .choice.correct {
+                border-color: #247a4d;
+                background: #edf8f1;
+                color: #175d38;
+            }
+
+            .choice.wrong {
+                border-color: #b9463c;
+                background: #fff0ee;
+                color: #81271f;
+            }
+
+        .source-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+            .source-links a {
+                border: 1px solid var(--muted);
+                color: var(--ink);
+                background: #fff;
+                text-decoration: none;
+                padding: 5px 8px;
+                border-radius: 4px;
+                font-weight: 800;
+            }
+
+        @media (max-width: 860px) {
+            .top-grid, .app, .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tools {
+                position: static;
+            }
+
+            .term-list {
+                max-height: none;
+            }
+
+            .criteria div {
+                grid-template-columns: 82px 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-inner">
+            <h1>口頭試問キーワード対策</h1>
+            <p>DirectX 12系の用語を、クリックして説明を確認できる勉強ページにまとめました。短く答える練習から、追加質問への対応まで使えます。</p>
+            <div class="hero-stats">
+                <span>用語 43個</span>
+                <span>目標 S: 完璧に説明</span>
+                <span>5分試問向け</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="wrap">
+        <div class="top-grid">
+            <section class="band">
+                <h2>採点基準</h2>
+                <div class="criteria">
+                    <div><span>S 81-100</span><span>完璧に理解しており、想定以上の答えができる</span></div>
+                    <div><span>A 61-80</span><span>聞かれた内容について理解している</span></div>
+                    <div><span>B 41-60</span><span>不明瞭な部分はあるが、概ね理解している</span></div>
+                    <div><span>C 21-40</span><span>単語を聞いたことがあり、類似語を挙げられる</span></div>
+                    <div><span>D 1-20</span><span>単語を聞いたことがある程度</span></div>
+                </div>
+            </section>
+            <section class="band">
+                <h2>実施の流れ</h2>
+                <div class="flow">
+                    <div><span>1</span><span>一人ずつ呼び出し</span></div>
+                    <div><span>2</span><span>「キーワードについて説明してください」に答える</span></div>
+                    <div><span>3</span><span>関連する追加質問に答える</span></div>
+                    <div><span>4</span><span>時間まで質疑応答を繰り返す</span></div>
+                    <div><span>5</span><span>指示に従い退出。全体で5分程度</span></div>
+                </div>
+            </section>
+        </div>
+
+        <section class="app" aria-label="用語一覧と説明">
+            <aside class="tools">
+                <input class="search" id="search" type="search" placeholder="用語を検索">
+                <nav class="term-list" id="termList" aria-label="用語一覧"></nav>
+            </aside>
+            <article class="detail" id="detail" aria-live="polite"></article>
+        </section>
+
+        <section class="practice">
+            <h2>ランダム練習</h2>
+            <div class="practice-row">
+                <button id="randomBtn">ランダムに出題</button>
+                <button id="choiceBtn">四択で出題</button>
+                <button id="judgeBtn">採点する</button>
+                <button class="secondary" id="answerBtn">答えを見る</button>
+            </div>
+            <div class="question" id="question">「ランダムに出題」を押すと、口頭試問の形式で練習できます。</div>
+            <textarea class="answer-input" id="practiceAnswer" placeholder="ここに自分の答えを入力"></textarea>
+            <div class="judge" id="judgeResult">入力した答えを採点できます。キーワードのニュアンスが近いほど高く判定します。</div>
+            <div class="quiz-panel" id="quizPanel" hidden>
+                <div class="quiz-title" id="quizTitle"></div>
+                <div class="choices" id="choices"></div>
+                <div class="judge" id="quizResult">選択すると解説が表示されます。</div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        const terms = [
+            {
+                name: "Heap(Default/Upload/Readback)",
+                short: "GPUやCPUが使うメモリ領域の種類です。DefaultはGPU用、UploadはCPUからGPUへ渡す用、ReadbackはGPU結果をCPUへ戻す用です。",
+                detail: "DirectX 12ではリソースをどのメモリに置くかを明確に選びます。Default HeapはGPUから高速に読めるため、実際の描画に使う頂点バッファやテクスチャを置きます。Upload HeapはCPUが書き込みやすく、GPUへデータを転送するときに使います。Readback HeapはGPUで処理した結果をCPU側で確認したいときに使います。",
+                answer: "『Heapはリソースを置くメモリの場所です。DefaultはGPUが描画で使う本番用、UploadはCPUからGPUへ送る転送用、ReadbackはGPUの結果をCPUへ戻す確認用です』と答える。",
+                question: "Default Heapに直接CPUが毎フレーム書き込む設計がよくない理由は？",
+                related: ["Resource", "Buffer", "Texture", "CommandList"]
+            },
+            {
+                name: "RootParameter",
+                short: "シェーダーへ渡すデータの入り口を表す設定です。",
+                detail: "RootParameterはRootSignatureの中に並ぶ要素で、CBV、SRV、UAV、DescriptorTable、定数などをシェーダーへどう渡すかを決めます。シェーダーが必要とするリソースと、CPU側でバインドする情報を一致させるための約束です。",
+                answer: "『RootParameterはRootSignature内の1項目で、シェーダーに渡すCBVやSRVなどの入口を定義するものです』と答える。",
+                question: "DescriptorTableとRootParameterの関係は？",
+                related: ["RootSignature", "DescriptorTable", "ConstantBufferView(CBV)", "ShaderResourceView(SRV)"]
+            },
+            {
+                name: "RootSignature",
+                short: "シェーダーがどんなリソースを受け取るかを決める設計図です。",
+                detail: "RootSignatureは、描画パイプラインでシェーダーに渡す定数バッファ、テクスチャ、サンプラーなどの配置を定義します。PSOと組み合わせて使われ、シェーダー側のregister指定と一致している必要があります。",
+                answer: "『RootSignatureはシェーダーに渡すリソースの構成を決める設計図で、RootParameterを並べてCBVやSRVなどの渡し方を定義します』と答える。",
+                question: "RootSignatureとPSOはなぜ一緒に考える必要がある？",
+                related: ["RootParameter", "PipelineStateObject(PSO)", "register", "HLSL"]
+            },
+            {
+                name: "DescriptorTable",
+                short: "複数のDescriptorRangeをまとめてシェーダーに渡す表です。",
+                detail: "DescriptorTableは、SRVやCBVなどのディスクリプタを連続した範囲としてまとめ、RootSignature経由でシェーダーに渡します。テクスチャを複数扱う場合などに、個別に渡すより管理しやすくなります。",
+                answer: "『DescriptorTableは複数のディスクリプタ範囲をまとめた表で、RootSignatureからシェーダーへリソース群を渡すために使います』と答える。",
+                question: "DescriptorRangeには何を指定する？",
+                related: ["DescriptorRange", "RootSignature", "ShaderResourceView(SRV)", "Texture"]
+            },
+            {
+                name: "DescriptorRange",
+                short: "CBVやSRVなどのディスクリプタが何個、どのregisterから並ぶかを表す範囲です。",
+                detail: "DescriptorRangeでは、リソースの種類、個数、開始register、register spaceなどを指定します。たとえばt0からSRVを1個、b0からCBVを1個のように、シェーダー側のregisterと対応させます。",
+                answer: "『DescriptorRangeはDescriptorTable内の範囲指定で、SRVやCBVがどのregisterから何個並ぶかを定義します』と答える。",
+                question: "t0やb0とDescriptorRangeはどう対応する？",
+                related: ["DescriptorTable", "register", "ShaderResourceView(SRV)", "ConstantBufferView(CBV)"]
+            },
+            {
+                name: "Resource",
+                short: "GPUが扱うデータ本体です。バッファやテクスチャなどがResourceです。",
+                detail: "ResourceはDirectX 12でGPUに渡すデータの実体を指します。頂点データならBuffer、画像データならTexture、深度情報ならDepth Bufferのように用途によって形が変わります。Resourceをそのまま使うのではなく、Viewを作って用途を伝えることが多いです。",
+                answer: "『ResourceはGPUで使うデータ本体です。BufferやTextureが代表例で、描画時にはViewを通して用途を指定します』と答える。",
+                question: "ResourceとViewの違いは？",
+                related: ["Buffer", "Texture", "View", "Heap(Default/Upload/Readback)"]
+            },
+            {
+                name: "Texture",
+                short: "画像として扱うResourceです。色、法線、深度などのピクセル情報を持ちます。",
+                detail: "Textureは2D画像や3D画像のように、座標で参照できるデータです。PixelShaderでUV座標を使って色を取り出す用途が多く、Materialの見た目を作る中心的なリソースです。",
+                answer: "『Textureは画像データのResourceで、PixelShaderからUV座標で参照して色や質感を決めるために使います』と答える。",
+                question: "TextureをPixelShaderで読むにはどのViewを使う？",
+                related: ["Resource", "ShaderResourceView(SRV)", "TextureCoordinate(UV)", "Sampler"]
+            },
+            {
+                name: "Buffer",
+                short: "連続したデータを入れるResourceです。頂点、インデックス、定数などに使います。",
+                detail: "Bufferは一次元のメモリ領域として扱うResourceです。頂点情報を入れるVertex Buffer、シェーダーへ行列などを渡すConstant Buffer、描画順を決めるIndex Bufferなどがあります。",
+                answer: "『Bufferは連続したデータを入れるResourceで、頂点データや定数データなどをGPUに渡すために使います』と答える。",
+                question: "Vertex BufferとConstant Bufferの違いは？",
+                related: ["Resource", "VertexBufferView(VBV)", "ConstantBufferView(CBV)", "VertexShader"]
+            },
+            {
+                name: "Z-Buffer(DepthBuffer)",
+                short: "画面上で手前か奥かを判定するための深度情報です。",
+                detail: "Z-Bufferは各ピクセルの奥行きを保存します。新しく描こうとするピクセルが既に描かれたものより手前なら描き、奥なら捨てることで、物体の前後関係を正しく表示できます。",
+                answer: "『Z-Bufferはピクセルごとの奥行き情報で、Depth Testによって手前のものだけを表示するために使います』と答える。",
+                question: "DepthFuncがLessEqualの場合、どんなピクセルが通る？",
+                related: ["DepthStencilView(DSV)", "DepthStencilState", "DepthFunc", "RenderingPipeline"]
+            },
+            {
+                name: "View",
+                short: "Resourceをどの用途で使うかをGPUに伝える見方です。",
+                detail: "同じResourceでも、頂点として読む、テクスチャとして読む、レンダーターゲットとして書き込むなど用途が異なります。Viewはその使い方を指定する窓口で、VBV、SRV、RTV、DSV、CBVなどがあります。",
+                answer: "『ViewはResourceの使い方を表すものです。Resource本体に対して、頂点用、テクスチャ用、描画先用などの見方を指定します』と答える。",
+                question: "SRVとRTVは同じTextureに対して作れる？その用途は？",
+                related: ["Resource", "VertexBufferView(VBV)", "ShaderResourceView(SRV)", "RenderTargetView(RTV)"]
+            },
+            {
+                name: "VertexBufferView(VBV)",
+                short: "頂点バッファをInput Assemblerへ渡すためのViewです。",
+                detail: "VBVには頂点バッファのGPUアドレス、全体サイズ、1頂点あたりのサイズなどを設定します。これによりGPUは頂点データを何バイトごとに読めばよいか分かります。",
+                answer: "『VBVは頂点バッファ用のViewで、GPUアドレス、サイズ、1頂点の幅を指定して頂点データを読ませます』と答える。",
+                question: "VBVのStrideInBytesは何を表す？",
+                related: ["Buffer", "InputLayout", "VertexShader", "RenderingPipeline"]
+            },
+            {
+                name: "ShaderResourceView(SRV)",
+                short: "シェーダーがResourceを読むためのViewです。",
+                detail: "SRVはTextureやBufferをシェーダーから読み取り専用で使うためのViewです。PixelShaderでテクスチャを読む、ComputeShaderでバッファを読むなどの場面で使われます。",
+                answer: "『SRVはシェーダーからResourceを読み取るためのViewです。代表例はPixelShaderでTextureを読むことです』と答える。",
+                question: "SRVとRTVの違いは？",
+                related: ["Texture", "View", "PixelShader", "DescriptorTable"]
+            },
+            {
+                name: "RenderTargetView(RTV)",
+                short: "描画結果を書き込む先を表すViewです。",
+                detail: "RTVはPixelShaderの出力色を書き込むTextureやSwapChainのBackBufferを指定します。画面に表示する最終画像や、後で使う中間画像を作るときに使います。",
+                answer: "『RTVは描画結果の色を書き込む先を示すViewで、SwapChainのBackBufferなどに対して作ります』と答える。",
+                question: "SwapChainのBackBufferにはなぜRTVを作る？",
+                related: ["SwapChain", "DoubleBuffering", "PixelShader", "View"]
+            },
+            {
+                name: "DepthStencilView(DSV)",
+                short: "Depth BufferやStencil Bufferを書き込むためのViewです。",
+                detail: "DSVは深度やステンシル情報を保存するResourceを、Depth TestやStencil Testで使えるようにするViewです。通常はRTVと一緒にOMステージへ設定します。",
+                answer: "『DSVは深度やステンシル用ResourceのViewで、奥行き判定やステンシル判定に使います』と答える。",
+                question: "DSVはどのResourceとセットで説明できる？",
+                related: ["Z-Buffer(DepthBuffer)", "DepthStencilState", "DepthFunc", "View"]
+            },
+            {
+                name: "ConstantBufferView(CBV)",
+                short: "シェーダーへ一定のパラメータを渡すためのViewです。",
+                detail: "CBVは行列、色、ライト情報、時間など、描画中に参照する定数データをシェーダーへ渡します。オブジェクトごとのWorld行列やカメラのViewProjection行列が代表例です。",
+                answer: "『CBVはシェーダーへ定数データを渡すViewで、World行列や色、ライトなどのパラメータを入れます』と答える。",
+                question: "Transform情報はCBVでどう渡される？",
+                related: ["Buffer", "Transform", "RootParameter", "HLSL"]
+            },
+            {
+                name: "CommandList",
+                short: "GPUに実行してほしい命令を記録するリストです。",
+                detail: "DirectX 12では、CPUが描画命令をCommandListに記録し、CommandQueueへ渡してGPUに実行させます。Resource Barrier、描画先設定、VBV設定、Draw命令などを順番に積みます。",
+                answer: "『CommandListはGPUに実行させる描画命令を記録するものです。記録後にCommandQueueへ渡して実行します』と答える。",
+                question: "CommandListとCommandQueueの違いは？",
+                related: ["CommandQueue", "RenderingPipeline", "Resource", "PipelineStateObject(PSO)"]
+            },
+            {
+                name: "CommandQueue",
+                short: "CommandListをGPUへ送って実行させる待ち行列です。",
+                detail: "CommandQueueは記録済みCommandListを受け取り、GPU側へ投入します。描画用、コピー用、計算用など種類があり、GPUとの同期ではFenceと一緒に使われます。",
+                answer: "『CommandQueueはCommandListをGPUに実行させるためのキューです。CPUが命令を記録し、Queueに積んでGPUへ流します』と答える。",
+                question: "命令を記録するものと実行に流すものはそれぞれ何？",
+                related: ["CommandList", "SwapChain", "DoubleBuffering", "RenderingPipeline"]
+            },
+            {
+                name: "RenderingPipeline",
+                short: "頂点データから画面のピクセルになるまでの描画処理の流れです。",
+                detail: "代表的な流れは、Input Assemblerで頂点を読み、VertexShaderで座標変換し、Rasterizerで三角形をピクセル候補にし、PixelShaderで色を決め、Output MergerでRTVやDSVに書き込む、というものです。",
+                answer: "『RenderingPipelineは頂点から最終的な画面表示までの流れです。頂点を読み、VSで変換し、Rasterizerでピクセル化し、PSで色を決め、RTVへ書き込みます』と答える。",
+                question: "VertexShader、Rasterizer、PixelShaderの順番を説明して。",
+                related: ["VertexShader", "RasterizerState", "PixelShader", "RenderTargetView(RTV)"]
+            },
+            {
+                name: "PipelineStateObject(PSO)",
+                short: "描画パイプラインの状態をまとめたオブジェクトです。",
+                detail: "PSOにはシェーダー、InputLayout、BlendState、RasterizerState、DepthStencilState、RTV形式などが含まれます。DirectX 12では描画状態をまとめて作っておき、描画時に切り替えます。",
+                answer: "『PSOは描画に必要な状態のセットです。シェーダー、InputLayout、Blend、Rasterizer、DepthStencilなどをまとめて持ちます』と答える。",
+                question: "PSOに含まれる状態を3つ挙げて。",
+                related: ["BlendState", "RasterizerState", "DepthStencilState", "InputLayout"]
+            },
+            {
+                name: "BlendState",
+                short: "描画する色と既にある色をどう混ぜるかを決める状態です。",
+                detail: "BlendStateは透明表現などで使います。PixelShaderが出した色とRenderTargetに既にある色を、アルファ値などに基づいて合成します。無効なら基本的に新しい色で上書きします。",
+                answer: "『BlendStateは新しく描く色と既存の色をどう合成するかを決めます。透明表現ではアルファブレンドに使います』と答える。",
+                question: "半透明のMaterialを描くときに関係する状態は？",
+                related: ["PipelineStateObject(PSO)", "PixelShader", "Material", "RenderTargetView(RTV)"]
+            },
+            {
+                name: "RasterizerState",
+                short: "三角形をピクセル候補にする段階の設定です。",
+                detail: "RasterizerStateでは、塗りつぶし方法、カリング、Front/Back判定などを指定します。たとえば裏面カリングを使うと、見えない向きの三角形を描かずに済みます。",
+                answer: "『RasterizerStateは三角形を画面上のピクセル候補に変換する時の設定で、カリングや塗りつぶし方法を決めます』と答える。",
+                question: "カリングとは何？",
+                related: ["RenderingPipeline", "PipelineStateObject(PSO)", "Scissor", "Viewport"]
+            },
+            {
+                name: "DepthStencilState",
+                short: "深度テストとステンシルテストの方法を決める状態です。",
+                detail: "DepthStencilStateはZ-Bufferを使って奥行き判定を行うか、どの比較関数を使うか、ステンシル値をどう扱うかを決めます。3Dの前後関係に重要です。",
+                answer: "『DepthStencilStateはDepth TestやStencil Testの設定で、奥行き比較の有無やDepthFuncを決めます』と答える。",
+                question: "DepthFuncとDepthStencilStateの関係は？",
+                related: ["Z-Buffer(DepthBuffer)", "DepthFunc", "DepthStencilView(DSV)", "PipelineStateObject(PSO)"]
+            },
+            {
+                name: "InputLayout",
+                short: "頂点データの中身の並び方をシェーダーへ伝える設定です。",
+                detail: "InputLayoutは、頂点バッファ内にPosition、Normal、Texcoordなどがどの形式でどの順番に入っているかを定義します。VertexShaderの入力セマンティクスと対応します。",
+                answer: "『InputLayoutは頂点データの構造を示す設定です。PositionやUVなどが何形式で並ぶかを定義し、VertexShader入力と対応します』と答える。",
+                question: "頂点に位置とUVがある場合、InputLayoutには何を定義する？",
+                related: ["VertexBufferView(VBV)", "VertexShader", "TextureCoordinate(UV)", "PipelineStateObject(PSO)"]
+            },
+            {
+                name: "DepthFunc",
+                short: "深度値を比較するときの条件です。",
+                detail: "DepthFuncは、新しく描くピクセルの深度とZ-Bufferにある深度を比較し、描くかどうかを決めます。Lessならより手前、LessEqualなら同じか手前のピクセルが通ります。",
+                answer: "『DepthFuncはDepth Testの比較条件です。たとえばLessEqualなら、既存の深度以下、つまり同じか手前なら描画します』と答える。",
+                question: "DepthFuncがAlwaysだとどうなる？",
+                related: ["DepthStencilState", "Z-Buffer(DepthBuffer)", "DepthStencilView(DSV)"]
+            },
+            {
+                name: "VertexShader",
+                short: "頂点ごとの処理を行うシェーダーです。",
+                detail: "VertexShaderは頂点の位置、法線、UVなどを受け取り、主にWorld/View/Projection変換をしてクリップ空間の座標を出力します。後段のPixelShaderへ渡す値もここで準備します。",
+                answer: "『VertexShaderは頂点単位で動くシェーダーで、頂点座標をWorld、View、Projection行列で変換して次の段階へ渡します』と答える。",
+                question: "VertexShaderでTransformを使う理由は？",
+                related: ["Transform", "HLSL", "InputLayout", "RenderingPipeline"]
+            },
+            {
+                name: "PixelShader",
+                short: "ピクセルごとの色を決めるシェーダーです。",
+                detail: "PixelShaderはRasterizer後に呼ばれ、Texture、Material、Lightなどを使って最終的な色を計算します。出力はRTVへ書き込まれます。",
+                answer: "『PixelShaderはピクセルごとの色を計算するシェーダーです。TextureやMaterialを参照して、最終的な色をRTVへ出します』と答える。",
+                question: "PixelShaderでTextureを読むときに必要なものは？",
+                related: ["Texture", "Sampler", "ShaderResourceView(SRV)", "PIX"]
+            },
+            {
+                name: "TextureCoordinate(UV)",
+                short: "Textureのどこを読むかを表す座標です。",
+                detail: "UVはTexture上の位置を表す2次元座標で、一般的に0から1の範囲で指定します。モデルの頂点にUVを持たせ、PixelShaderで補間されたUVを使ってTextureから色を取ります。",
+                answer: "『UVはTexture上の参照位置です。頂点に持たせたUVがピクセルごとに補間され、PixelShaderでTextureを読む座標になります』と答える。",
+                question: "UVがずれると見た目はどうなる？",
+                related: ["Texture", "Sampler", "Texel", "PixelShader"]
+            },
+            {
+                name: "SwapChain",
+                short: "画面表示用のBackBufferを切り替える仕組みです。",
+                detail: "SwapChainは描画済みの画像を画面へ表示するために、複数のBackBufferを管理します。描画中のバッファと表示中のバッファを入れ替えることで、ちらつきを減らします。",
+                answer: "『SwapChainは画面に表示するBackBufferを管理し、描画したバッファをPresentで表示側へ切り替える仕組みです』と答える。",
+                question: "SwapChainとDoubleBufferingの関係は？",
+                related: ["DoubleBuffering", "RenderTargetView(RTV)", "CommandQueue"]
+            },
+            {
+                name: "DoubleBuffering",
+                short: "表示用と描画用の2枚のバッファを使う方法です。",
+                detail: "DoubleBufferingでは、片方のバッファを画面に表示している間に、もう片方へ次のフレームを描きます。描き終わったら入れ替えることで、描画途中の画面が見えることを防ぎます。",
+                answer: "『DoubleBufferingは2枚のバッファを使い、表示中と描画中を分けて最後に入れ替えることでちらつきを防ぐ方法です』と答える。",
+                question: "描画途中の画面が見えにくくなる理由は？",
+                related: ["SwapChain", "RenderTargetView(RTV)", "CommandQueue"]
+            },
+            {
+                name: "Log",
+                short: "動作確認やエラー原因を調べるための記録です。",
+                detail: "Logはプログラムの状態、エラー、読み込んだファイル、描画処理の進行などを記録します。DirectXでは初期化失敗やシェーダーコンパイル失敗の原因確認に役立ちます。",
+                answer: "『Logはプログラムの実行状況やエラーを記録するものです。問題が起きた時に原因を追うために使います』と答える。",
+                question: "シェーダーが表示されない時、Logで何を確認する？",
+                related: ["Dxc(DirectX Shader Compiler)", "HLSL", "PIX"]
+            },
+            {
+                name: "ImGui",
+                short: "デバッグ用UIを簡単に作れるライブラリです。",
+                detail: "ImGuiはImmediate Mode GUIのライブラリで、スライダー、チェックボックス、色変更などのデバッグUIを簡単に表示できます。Material調整やTransform確認に便利です。",
+                answer: "『ImGuiはデバッグ用のGUIを作るライブラリです。パラメータ調整や状態確認を実行中に行うために使います』と答える。",
+                question: "ImGuiでMaterialの何を調整できる？",
+                related: ["Material", "Transform", "Log"]
+            },
+            {
+                name: "PIX",
+                short: "DirectXアプリのGPU処理を解析するデバッグツールです。",
+                detail: "PIXを使うと、1フレーム内でどのDrawが実行されたか、どのResourceやShaderが使われたか、GPU時間がどこでかかっているかを確認できます。描画されない原因調査にも役立ちます。",
+                answer: "『PIXはDirectX向けのGPUデバッグ・解析ツールで、Draw Call、Resource、Shader、GPU時間などを確認できます』と答える。",
+                question: "画面に何も出ない時、PIXで何を見ればよい？",
+                related: ["CommandList", "PixelShader", "ShaderResourceView(SRV)", "Log"]
+            },
+            {
+                name: "HLSL",
+                short: "DirectXで使うシェーダーを書くための言語です。",
+                detail: "HLSLはHigh Level Shading Languageの略で、VertexShaderやPixelShaderなどを記述します。C言語に近い文法で、register指定によりCBVやSRVなどと対応させます。",
+                answer: "『HLSLはDirectXでシェーダーを書く言語です。VertexShaderやPixelShaderを記述し、registerでリソースと対応させます』と答える。",
+                question: "HLSLのregister(b0)やregister(t0)は何を表す？",
+                related: ["register", "VertexShader", "PixelShader", "Dxc(DirectX Shader Compiler)"]
+            },
+            {
+                name: "register",
+                short: "HLSL側でリソースの接続番号を指定するものです。",
+                detail: "register(b0)はCBV、register(t0)はSRV、register(s0)はSamplerのように、シェーダーが参照するスロットを示します。RootSignatureやDescriptorRange側の指定と一致させる必要があります。",
+                answer: "『registerはHLSLでリソースのスロット番号を指定するものです。b0はCBV、t0はSRV、s0はSamplerなどを表します』と答える。",
+                question: "RootSignatureとregisterが一致しないとどうなる？",
+                related: ["HLSL", "RootSignature", "DescriptorRange", "Sampler"]
+            },
+            {
+                name: "Sampler",
+                short: "Textureを読む時の補間方法や繰り返し方法を決める設定です。",
+                detail: "SamplerはTextureから色を取るとき、拡大縮小時に最近傍にするか線形補間にするか、UVが範囲外の時に繰り返すか端で止めるかなどを決めます。",
+                answer: "『SamplerはTextureをサンプリングするときの読み方を決める設定で、補間方法やアドレスモードを指定します』と答える。",
+                question: "PointとLinearのSamplingは見た目がどう違う？",
+                related: ["Sampling", "Texture", "TextureCoordinate(UV)", "Texel"]
+            },
+            {
+                name: "Texel",
+                short: "Textureを構成する1つ1つの画素です。",
+                detail: "画面上の1点はPixel、Texture上の1点はTexelと呼びます。PixelShaderではUV座標とSamplerを使ってTexture上のTexelを参照し、ピクセルの色を決めます。",
+                answer: "『TexelはTexture上の1画素です。画面上のPixelとは区別して、Textureを読む時の最小単位として考えます』と答える。",
+                question: "PixelとTexelの違いは？",
+                related: ["Texture", "PixelShader", "Sampling", "TextureCoordinate(UV)"]
+            },
+            {
+                name: "Sampling",
+                short: "Textureから色を取り出す処理です。",
+                detail: "SamplingはUV座標を使ってTextureから色を取得することです。Samplerの設定によって、Texelをそのまま取る、周囲を補間する、UV範囲外を繰り返すなどの挙動が変わります。",
+                answer: "『SamplingはUV座標でTextureから色を取る処理です。Samplerによって補間方法や範囲外の扱いが変わります』と答える。",
+                question: "SamplingにUVとSamplerが必要な理由は？",
+                related: ["Sampler", "Texture", "Texel", "TextureCoordinate(UV)"]
+            },
+            {
+                name: "Dxc(DirectX Shader Compiler)",
+                short: "HLSLをGPUが実行できる形式へコンパイルするツールです。",
+                detail: "DxcはDirectX Shader Compilerの略で、HLSLファイルをコンパイルしてシェーダーバイナリを作ります。コンパイルエラーが出た場合、Logを確認して文法やregisterの問題を修正します。",
+                answer: "『DxcはHLSLをコンパイルするDirectXのシェーダーコンパイラです。VSやPSをGPUで使える形式に変換します』と答える。",
+                question: "HLSLを書いただけでは実行できない理由は？",
+                related: ["HLSL", "VertexShader", "PixelShader", "Log"]
+            },
+            {
+                name: "Viewport",
+                short: "描画結果を画面のどの範囲に表示するかを決める領域です。",
+                detail: "Viewportは、クリップ空間から画面座標へ変換したあと、どの矩形範囲に描くかを指定します。ウィンドウ全体に描くなら幅と高さをウィンドウサイズに合わせます。",
+                answer: "『Viewportは描画する画面上の領域です。変換後の座標をウィンドウ内のどこに対応させるかを決めます』と答える。",
+                question: "ViewportとScissorの違いは？",
+                related: ["Scissor", "RasterizerState", "RenderingPipeline"]
+            },
+            {
+                name: "Scissor",
+                short: "描画を許可する矩形範囲を切り抜く設定です。",
+                detail: "Scissor Rectは、指定した矩形の外側にあるピクセルを描かないようにする設定です。Viewportが座標変換先の領域を決めるのに対し、Scissorは描画可能範囲を制限します。",
+                answer: "『Scissorは描画してよい範囲を矩形で制限する設定です。範囲外のピクセルは捨てられます』と答える。",
+                question: "ViewportとScissorを同じサイズにすることが多い理由は？",
+                related: ["Viewport", "RasterizerState", "RenderingPipeline"]
+            },
+            {
+                name: "Material",
+                short: "物体の見た目を決める情報のまとまりです。",
+                detail: "Materialは色、Texture、透明度、反射、ライティング用パラメータなどをまとめたものです。PixelShaderでMaterial情報を使い、最終的な見た目を計算します。",
+                answer: "『Materialはモデルの見た目を決める情報です。色、Texture、透明度、ライティング用の値などをまとめます』と答える。",
+                question: "MaterialとTextureの違いは？",
+                related: ["Texture", "PixelShader", "BlendState", "ImGui"]
+            },
+            {
+                name: "Transform",
+                short: "物体の位置、回転、拡大縮小を表す変換です。",
+                detail: "Transformはモデルをワールド上のどこに、どの向きで、どの大きさで置くかを表します。通常はWorld行列としてまとめ、CBVでVertexShaderへ渡します。",
+                answer: "『Transformは位置、回転、拡大縮小の情報です。World行列にしてVertexShaderへ渡し、頂点座標を変換します』と答える。",
+                question: "Transformはどのシェーダーで主に使う？",
+                related: ["VertexShader", "ConstantBufferView(CBV)", "Scene", "ImGui"]
+            },
+            {
+                name: "Scene",
+                short: "描画する世界全体のまとまりです。",
+                detail: "Sceneはモデル、カメラ、ライト、Material、Transformなどを含む描画対象の集合です。ゲームや3Dアプリでは、Sceneごとに更新処理と描画処理を管理することが多いです。",
+                answer: "『Sceneは描画する世界全体のまとまりで、モデル、カメラ、ライト、Transform、Materialなどを含みます』と答える。",
+                question: "Sceneの中に含まれるものを3つ挙げて。",
+                related: ["Transform", "Material", "RenderingPipeline", "ImGui"]
+            }
+        ];
+
+        const keywordBank = {
+            "Heap(Default/Upload/Readback)": [
+                ["heap", "ヒープ", "メモリ"],
+                ["default", "gpu", "描画", "本番"],
+                ["upload", "cpu", "送", "転送"],
+                ["readback", "戻", "結果"]
+            ],
+            "RootParameter": [
+                ["rootparameter", "root parameter", "ルートパラメータ"],
+                ["rootsignature", "root signature"],
+                ["cbv", "srv", "descriptor", "ディスクリプタ"],
+                ["シェーダ", "渡す", "入口"]
+            ],
+            "RootSignature": [
+                ["rootsignature", "root signature", "ルートシグネチャ"],
+                ["シェーダ", "shader"],
+                ["リソース", "resource"],
+                ["構成", "設計図", "渡す"]
+            ],
+            "DescriptorTable": [
+                ["descriptortable", "descriptor table"],
+                ["descriptor", "ディスクリプタ"],
+                ["まとめ", "表", "範囲"],
+                ["srv", "cbv", "texture", "テクスチャ"]
+            ],
+            "DescriptorRange": [
+                ["descriptorrange", "descriptor range"],
+                ["範囲", "range"],
+                ["register", "レジスタ", "t0", "b0"],
+                ["個数", "何個", "開始"]
+            ],
+            "Resource": [
+                ["resource", "リソース"],
+                ["gpu"],
+                ["データ", "本体"],
+                ["buffer", "texture", "バッファ", "テクスチャ"]
+            ],
+            "Texture": [
+                ["texture", "テクスチャ"],
+                ["画像", "色"],
+                ["uv", "座標"],
+                ["pixelshader", "pixel shader", "ピクセルシェーダ"]
+            ],
+            "Buffer": [
+                ["buffer", "バッファ"],
+                ["連続", "メモリ", "データ"],
+                ["頂点", "vertex"],
+                ["定数", "constant", "cbv"]
+            ],
+            "Z-Buffer(DepthBuffer)": [
+                ["z-buffer", "zbuffer", "depthbuffer", "depth buffer", "深度"],
+                ["奥行", "手前", "奥"],
+                ["判定", "test", "テスト"],
+                ["ピクセル", "pixel"]
+            ],
+            "View": [
+                ["view", "ビュー"],
+                ["resource", "リソース"],
+                ["使い方", "用途", "見方"],
+                ["srv", "rtv", "dsv", "cbv", "vbv"]
+            ],
+            "VertexBufferView(VBV)": [
+                ["vbv", "vertexbufferview", "vertex buffer view"],
+                ["頂点", "vertex"],
+                ["buffer", "バッファ"],
+                ["stride", "サイズ", "gpuアドレス", "アドレス"]
+            ],
+            "ShaderResourceView(SRV)": [
+                ["srv", "shaderresourceview", "shader resource view"],
+                ["シェーダ", "shader"],
+                ["読む", "読み取り", "参照"],
+                ["resource", "リソース", "texture", "テクスチャ"]
+            ],
+            "RenderTargetView(RTV)": [
+                ["rtv", "rendertargetview", "render target view"],
+                ["描画結果", "色"],
+                ["書き込", "出力"],
+                ["backbuffer", "back buffer", "swapchain"]
+            ],
+            "DepthStencilView(DSV)": [
+                ["dsv", "depthstencilview", "depth stencil view"],
+                ["深度", "depth"],
+                ["stencil", "ステンシル"],
+                ["view", "ビュー", "z-buffer", "depthbuffer"]
+            ],
+            "ConstantBufferView(CBV)": [
+                ["cbv", "constantbufferview", "constant buffer view"],
+                ["定数", "constant"],
+                ["シェーダ", "shader"],
+                ["行列", "色", "ライト", "パラメータ"]
+            ],
+            "CommandList": [
+                ["commandlist", "command list"],
+                ["命令", "コマンド"],
+                ["記録", "積む"],
+                ["gpu", "描画"]
+            ],
+            "CommandQueue": [
+                ["commandqueue", "command queue"],
+                ["commandlist", "command list"],
+                ["gpu"],
+                ["実行", "送る", "キュー"]
+            ],
+            "RenderingPipeline": [
+                ["renderingpipeline", "rendering pipeline", "パイプライン"],
+                ["頂点", "vertex"],
+                ["pixelshader", "pixel shader", "ピクセル"],
+                ["流れ", "画面", "描画"]
+            ],
+            "PipelineStateObject(PSO)": [
+                ["pso", "pipelinestateobject", "pipeline state object"],
+                ["状態", "セット", "まとめ"],
+                ["shader", "シェーダ"],
+                ["blend", "rasterizer", "depth", "inputlayout"]
+            ],
+            "BlendState": [
+                ["blendstate", "blend state", "ブレンド"],
+                ["混ぜ", "合成"],
+                ["透明", "アルファ"],
+                ["色", "render target", "rtv"]
+            ],
+            "RasterizerState": [
+                ["rasterizerstate", "rasterizer state", "ラスタライザ"],
+                ["三角形", "ポリゴン"],
+                ["ピクセル", "pixel"],
+                ["カリング", "塗りつぶし"]
+            ],
+            "DepthStencilState": [
+                ["depthstencilstate", "depth stencil state"],
+                ["depth", "深度"],
+                ["stencil", "ステンシル"],
+                ["test", "テスト", "比較", "depthfunc"]
+            ],
+            "InputLayout": [
+                ["inputlayout", "input layout"],
+                ["頂点", "vertex"],
+                ["構造", "並び", "形式"],
+                ["position", "normal", "uv", "vertexshader"]
+            ],
+            "DepthFunc": [
+                ["depthfunc", "depth func"],
+                ["深度", "depth"],
+                ["比較", "条件"],
+                ["less", "lessequal", "always", "手前"]
+            ],
+            "VertexShader": [
+                ["vertexshader", "vertex shader", "頂点シェーダ"],
+                ["頂点", "vertex"],
+                ["変換", "transform", "行列"],
+                ["world", "view", "projection", "座標"]
+            ],
+            "PixelShader": [
+                ["pixelshader", "pixel shader", "ピクセルシェーダ"],
+                ["ピクセル", "pixel"],
+                ["色"],
+                ["texture", "テクスチャ", "material", "マテリアル"]
+            ],
+            "TextureCoordinate(UV)": [
+                ["uv", "texturecoordinate", "texture coordinate"],
+                ["texture", "テクスチャ"],
+                ["座標", "位置"],
+                ["読む", "参照", "サンプリング"]
+            ],
+            "SwapChain": [
+                ["swapchain", "swap chain"],
+                ["backbuffer", "back buffer", "バックバッファ"],
+                ["切り替", "present", "表示"],
+                ["画面", "フレーム"]
+            ],
+            "DoubleBuffering": [
+                ["doublebuffering", "double buffering", "ダブルバッファ"],
+                ["2枚", "二枚", "２枚"],
+                ["表示", "描画"],
+                ["ちらつき", "入れ替"]
+            ],
+            "Log": [
+                ["log", "ログ"],
+                ["記録"],
+                ["エラー", "error"],
+                ["原因", "確認", "デバッグ"]
+            ],
+            "ImGui": [
+                ["imgui"],
+                ["gui", "ui"],
+                ["デバッグ"],
+                ["調整", "スライダー", "チェック"]
+            ],
+            "PIX": [
+                ["pix"],
+                ["directx"],
+                ["gpu"],
+                ["解析", "デバッグ", "draw", "resource", "shader"]
+            ],
+            "HLSL": [
+                ["hlsl"],
+                ["シェーダ", "shader"],
+                ["言語"],
+                ["vertexshader", "pixelshader", "register"]
+            ],
+            "register": [
+                ["register", "レジスタ"],
+                ["hlsl"],
+                ["b0", "t0", "s0"],
+                ["cbv", "srv", "sampler", "スロット"]
+            ],
+            "Sampler": [
+                ["sampler", "サンプラ"],
+                ["texture", "テクスチャ"],
+                ["読み方", "補間", "filter"],
+                ["repeat", "wrap", "clamp", "uv"]
+            ],
+            "Texel": [
+                ["texel", "テクセル"],
+                ["texture", "テクスチャ"],
+                ["画素", "1画素", "ピクセル"],
+                ["最小", "単位"]
+            ],
+            "Sampling": [
+                ["sampling", "サンプリング"],
+                ["texture", "テクスチャ"],
+                ["色", "取得", "読む"],
+                ["uv", "sampler", "texel"]
+            ],
+            "Dxc(DirectX Shader Compiler)": [
+                ["dxc", "directx shader compiler"],
+                ["hlsl"],
+                ["コンパイル"],
+                ["shader", "シェーダ", "gpu"]
+            ],
+            "Viewport": [
+                ["viewport", "ビューポート"],
+                ["画面", "領域", "範囲"],
+                ["座標", "変換"],
+                ["幅", "高さ"]
+            ],
+            "Scissor": [
+                ["scissor", "シザー"],
+                ["矩形", "範囲"],
+                ["切り抜", "制限"],
+                ["ピクセル", "描画"]
+            ],
+            "Material": [
+                ["material", "マテリアル"],
+                ["見た目"],
+                ["色", "texture", "テクスチャ"],
+                ["透明", "反射", "ライト"]
+            ],
+            "Transform": [
+                ["transform", "トランスフォーム"],
+                ["位置"],
+                ["回転"],
+                ["拡大", "縮小", "スケール", "行列"]
+            ],
+            "Scene": [
+                ["scene", "シーン"],
+                ["世界", "場面"],
+                ["モデル", "カメラ", "ライト"],
+                ["まとめ", "管理"]
+            ]
+        };
+
+        const sources = {
+            guide: {
+                label: "Microsoft Learn: Direct3D 12 programming guide",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/directx-12-programming-guide"
+            },
+            resourceBinding: {
+                label: "Microsoft Learn: Resource Binding",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/resource-binding"
+            },
+            descriptors: {
+                label: "Microsoft Learn: Descriptors",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/descriptors"
+            },
+            descriptorTables: {
+                label: "Microsoft Learn: Descriptor Tables",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/descriptor-tables"
+            },
+            descriptorHeaps: {
+                label: "Microsoft Learn: Descriptor Heaps",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/descriptor-heaps"
+            },
+            rootSignatures: {
+                label: "Microsoft Learn: Root Signatures",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/root-signatures-overview"
+            },
+            pipeline: {
+                label: "Microsoft Learn: Pipelines and Shaders",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/pipelines-and-shaders-with-directx-12"
+            },
+            pipelineState: {
+                label: "Microsoft Learn: Graphics Pipeline State",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/managing-graphics-pipeline-state-in-direct3d-12"
+            },
+            commandLists: {
+                label: "Microsoft Learn: Work submission",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/command-queues-and-command-lists"
+            },
+            memory: {
+                label: "Microsoft Learn: Memory Management",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/memory-management"
+            },
+            swapChains: {
+                label: "Microsoft Learn: Swap Chains",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3d12/swap-chains"
+            },
+            hlsl: {
+                label: "Microsoft Learn: HLSL",
+                url: "https://learn.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl"
+            },
+            dxc: {
+                label: "Microsoft GitHub: DirectX Shader Compiler",
+                url: "https://github.com/microsoft/DirectXShaderCompiler"
+            },
+            pix: {
+                label: "Microsoft PIX Documentation",
+                url: "https://devblogs.microsoft.com/pix/documentation/"
+            },
+            imgui: {
+                label: "Dear ImGui GitHub",
+                url: "https://github.com/ocornut/imgui"
+            }
+        };
+
+        const byName = new Map(terms.map((term) => [term.name, term]));
+        const termList = document.getElementById("termList");
+        const detail = document.getElementById("detail");
+        const search = document.getElementById("search");
+        const question = document.getElementById("question");
+        const practiceAnswer = document.getElementById("practiceAnswer");
+        const judgeResult = document.getElementById("judgeResult");
+        const quizPanel = document.getElementById("quizPanel");
+        const quizTitle = document.getElementById("quizTitle");
+        const choices = document.getElementById("choices");
+        const quizResult = document.getElementById("quizResult");
+        let currentPractice = null;
+        let currentQuiz = null;
+
+        function slug(name) {
+            return "term-" + encodeURIComponent(name);
+        }
+
+        function renderList(filter = "") {
+            const value = filter.trim().toLowerCase();
+            termList.innerHTML = "";
+            terms
+                .filter((term) => term.name.toLowerCase().includes(value) || term.short.toLowerCase().includes(value))
+                .forEach((term) => {
+                    const link = document.createElement("a");
+                    link.className = "term-link";
+                    link.href = "#" + slug(term.name);
+                    link.textContent = term.name;
+                    link.dataset.name = term.name;
+                    termList.appendChild(link);
+                });
+            markActive();
+        }
+
+        function relatedLinks(term) {
+            return term.related
+                .filter((name) => byName.has(name))
+                .map((name) => `<a class="chip" href="#${slug(name)}">${name}</a>`)
+                .join("");
+        }
+
+        function sourceKeysFor(term) {
+            const name = term.name.toLowerCase();
+            const keys = new Set(["guide"]);
+
+            if (/heap|buffer|resource|texture|view|cbv|srv|rtv|dsv|descriptor|sampler/.test(name)) {
+                keys.add("resourceBinding");
+                keys.add("descriptors");
+            }
+            if (/heap/.test(name)) keys.add("memory");
+            if (/descriptor/.test(name)) {
+                keys.add("descriptorHeaps");
+                keys.add("descriptorTables");
+            }
+            if (/root/.test(name)) keys.add("rootSignatures");
+            if (/command/.test(name)) keys.add("commandLists");
+            if (/pipeline|pso|state|shader|inputlayout|viewport|scissor|depth|blend|rasterizer|material|transform|scene/.test(name)) {
+                keys.add("pipeline");
+                keys.add("pipelineState");
+            }
+            if (/hlsl|register|sampler|shader|texturecoordinate|texel|sampling/.test(name)) keys.add("hlsl");
+            if (/swap|double/.test(name)) keys.add("swapChains");
+            if (/dxc/.test(name)) keys.add("dxc");
+            if (/pix/.test(name)) keys.add("pix");
+            if (/imgui/.test(name)) keys.add("imgui");
+
+            return [...keys];
+        }
+
+        function sourceLinks(term) {
+            return sourceKeysFor(term)
+                .map((key) => sources[key])
+                .filter(Boolean)
+                .map((source) => `<a href="${source.url}" target="_blank" rel="noopener">${source.label}</a>`)
+                .join("");
+        }
+
+        function selectTerm(term) {
+            detail.innerHTML = `
+            <div class="detail-head">
+              <h2>${term.name}</h2>
+              <p>${term.short}</p>
+            </div>
+            <div class="detail-body">
+              <div class="answer">${term.answer}</div>
+              <div class="info-grid">
+                <div class="info-box">
+                  <h3>詳しい説明</h3>
+                  <p>${term.detail}</p>
+                </div>
+                <div class="info-box">
+                  <h3>追加質問で来そうなこと</h3>
+                  <p>${term.question}</p>
+                </div>
+              </div>
+              <div class="info-box">
+                <h3>一緒に覚える用語</h3>
+                <div class="chips">${relatedLinks(term)}</div>
+              </div>
+              <div class="info-box">
+                <h3>ソース</h3>
+                <div class="source-links">${sourceLinks(term)}</div>
+              </div>
+            </div>
+          `;
+            markActive();
+        }
+
+        function markActive() {
+            const hash = decodeURIComponent(location.hash.replace(/^#term-/, ""));
+            document.querySelectorAll(".term-link").forEach((link) => {
+                link.classList.toggle("active", link.dataset.name === hash);
+            });
+        }
+
+        function route() {
+            const raw = decodeURIComponent(location.hash.replace(/^#term-/, ""));
+            const term = byName.get(raw) || terms[0];
+            selectTerm(term);
+        }
+
+        function normalizeText(value) {
+            return value
+                .toLowerCase()
+                .normalize("NFKC")
+                .replace(/[ぁ-ん]/g, (char) => String.fromCharCode(char.charCodeAt(0) + 0x60))
+                .replace(/\s+/g, "")
+                .replace(/[。、,.・/()（）「」『』:：_-]/g, "");
+        }
+
+        function judgeAnswer(term, input) {
+            const text = normalizeText(input);
+            const groups = keywordBank[term.name] || [[term.name], ...term.related.map((name) => [name])];
+            const matched = [];
+            const missing = [];
+
+            groups.forEach((group) => {
+                const hit = group.some((word) => text.includes(normalizeText(word)));
+                if (hit) {
+                    matched.push(group[0]);
+                } else {
+                    missing.push(group[0]);
+                }
+            });
+
+            const enoughLength = text.length >= 12;
+            const score = matched.length / groups.length;
+            let level = "miss";
+            let label = "見直し";
+
+            if (score >= 0.5 && enoughLength) {
+                level = "correct";
+                label = "合格ライン";
+            } else if (score >= 0.25 && enoughLength) {
+                level = "close";
+                label = "惜しい";
+            }
+
+            return { level, label, matched, missing, score };
+        }
+
+        function showJudge(result, term) {
+            judgeResult.className = `judge ${result.level}`;
+            const percent = Math.round(result.score * 100);
+            if (result.level === "correct") {
+                judgeResult.innerHTML = `合格ラインです。要点は押さえられています。<br>さらに強くするなら、口頭では「${term.answer}」くらいまで言えると安心です。`;
+            } else if (result.level === "close") {
+                judgeResult.innerHTML = `惜しいです。方向は合っています。<br>追加すると強い言葉: ${result.missing.slice(0, 3).join(" / ")}`;
+            } else {
+                judgeResult.innerHTML = `見直し推奨です。<br>まず入れたい言葉: ${result.missing.slice(0, 4).join(" / ")}`;
+            }
+        }
+
+        function resetPractice() {
+            practiceAnswer.value = "";
+            judgeResult.className = "judge";
+            judgeResult.textContent = "入力した答えを採点できます。キーワードのニュアンスが近いほど高く判定します。";
+        }
+
+        function shuffle(items) {
+            return [...items].sort(() => Math.random() - 0.5);
+        }
+
+        function makeChoiceQuiz() {
+            currentPractice = terms[Math.floor(Math.random() * terms.length)];
+            const wrongTerms = shuffle(terms.filter((term) => term.name !== currentPractice.name)).slice(0, 3);
+            const options = shuffle([
+                { text: currentPractice.short, correct: true, term: currentPractice },
+                ...wrongTerms.map((term) => ({ text: term.short, correct: false, term }))
+            ]);
+
+            currentQuiz = { term: currentPractice, options };
+            question.textContent = `「${currentPractice.name}」の説明として正しいものはどれ？`;
+            quizTitle.textContent = `第1問　${currentPractice.name}`;
+            choices.innerHTML = "";
+            quizResult.className = "judge";
+            quizResult.textContent = "選択すると解説が表示されます。";
+            quizPanel.hidden = false;
+            resetPractice();
+            location.hash = slug(currentPractice.name);
+
+            options.forEach((option, index) => {
+                const button = document.createElement("button");
+                button.className = "choice";
+                button.type = "button";
+                button.textContent = `${["ア", "イ", "ウ", "エ"][index]}　${option.text}`;
+                button.addEventListener("click", () => answerChoice(index));
+                choices.appendChild(button);
+            });
+        }
+
+        function answerChoice(index) {
+            if (!currentQuiz) return;
+            const buttons = [...choices.querySelectorAll(".choice")];
+            const selected = currentQuiz.options[index];
+            buttons.forEach((button, buttonIndex) => {
+                const option = currentQuiz.options[buttonIndex];
+                button.classList.toggle("correct", option.correct);
+                button.classList.toggle("wrong", buttonIndex === index && !option.correct);
+            });
+            quizResult.className = `judge ${selected.correct ? "correct" : "miss"}`;
+            quizResult.innerHTML = `
+            ${selected.correct ? "正解です。" : "不正解です。"}<br>
+            正解: ${currentQuiz.term.short}<br>
+            解説: ${currentQuiz.term.detail}<br>
+            <div class="source-links">${sourceLinks(currentQuiz.term)}</div>
+          `;
+        }
+
+        search.addEventListener("input", () => renderList(search.value));
+        window.addEventListener("hashchange", route);
+
+        document.getElementById("randomBtn").addEventListener("click", () => {
+            currentPractice = terms[Math.floor(Math.random() * terms.length)];
+            question.textContent = `「${currentPractice.name}」について説明してください。`;
+            quizPanel.hidden = true;
+            resetPractice();
+            location.hash = slug(currentPractice.name);
+        });
+
+        document.getElementById("choiceBtn").addEventListener("click", makeChoiceQuiz);
+
+        document.getElementById("judgeBtn").addEventListener("click", () => {
+            if (!currentPractice) {
+                const raw = decodeURIComponent(location.hash.replace(/^#term-/, ""));
+                currentPractice = byName.get(raw) || terms[0];
+                question.textContent = `「${currentPractice.name}」について説明してください。`;
+            }
+            const input = practiceAnswer.value.trim();
+            if (!input) {
+                judgeResult.className = "judge miss";
+                judgeResult.textContent = "まず自分の答えを入力してください。短くてもいいので、口で言うつもりで書くのがおすすめです。";
+                return;
+            }
+            showJudge(judgeAnswer(currentPractice, input), currentPractice);
+        });
+
+        document.getElementById("answerBtn").addEventListener("click", () => {
+            if (!currentPractice) {
+                const raw = decodeURIComponent(location.hash.replace(/^#term-/, ""));
+                currentPractice = byName.get(raw) || terms[0];
+            }
+            judgeResult.className = "judge";
+            judgeResult.innerHTML = `模範回答<br>${currentPractice.answer}`;
+        });
+
+        renderList();
+        if (!location.hash) {
+            location.hash = slug(terms[0].name);
+        } else {
+            route();
+        }
+    </script>
+</body>
+</html>
